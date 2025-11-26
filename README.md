@@ -1,93 +1,163 @@
-# 官网
+# 炼丹蓝图官网
 
+## 项目简介
 
+炼丹蓝图的官方网站，旨在让用户了解和使用这个可视化的AI架构设计工具。网站采用现代、简洁的设计风格，突出产品的核心功能和优势。
 
-## Getting started
+## 技术栈
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- **Vue 3** - 使用组合式API开发
+- **Vue CLI** - 构建工具（不使用Vite）
+- **纯CSS** - 不使用Tailwind，直接编写CSS样式
+- **CSS变量** - 用于主题管理和样式复用
+- **响应式设计** - 适配移动端和桌面端
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## 组件设计
 
-## Add your files
+### Navbar（导航栏）
+- **功能**：网站顶部导航，包含Logo、菜单和行动按钮
+- **设计思路**：固定在顶部，使用半透明背景和毛玻璃效果，提升视觉层次感
+- **响应式**：在移动端自动调整布局
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+### Hero（Hero区域）
+- **功能**：网站首页的核心展示区域
+- **设计思路**：使用渐变文字和动画效果，突出产品的核心价值主张
+- **特色**：包含模拟编辑器界面，直观展示产品功能
 
+### Features（核心特性）
+- **功能**：展示产品的三个核心功能
+- **设计思路**：使用卡片式布局，每个卡片包含图标、标题和描述
+- **交互**：卡片悬停时有轻微的上浮效果，提升用户体验
+
+### Audience（适用人群）
+- **功能**：展示产品的适用人群
+- **设计思路**：左右分栏对比设计，分别展示AI初学者和算法工程师的使用场景
+- **视觉**：使用不同的背景色区分两个部分，增强视觉对比
+
+### Cta（行动召唤）
+- **功能**：引导用户采取行动（如注册、试用）
+- **设计思路**：简洁明了的布局，突出行动按钮
+- **视觉**：使用渐变背景和阴影效果，吸引用户注意力
+
+### Footer（页脚）
+- **功能**：包含网站的辅助链接和版权信息
+- **设计思路**：多列布局，包含产品链接、资源链接和联系信息
+- **响应式**：在移动端自动调整为单列布局
+
+## 样式设计
+
+### CSS变量
+
+项目使用CSS变量来管理主题色和样式，便于统一修改和维护。主要变量包括：
+
+- **主题色**：`--primary-color`、`--secondary-color`、`--accent-purple`等
+- **背景色**：`--brand-bg`、`--white`、`--slate-50`等
+- **阴影**：`--shadow-soft`、`--shadow-card`、`--shadow-lg`等
+- **圆角**：`--radius-sm`、`--radius-md`、`--radius-lg`等
+
+### 响应式设计
+
+网站采用响应式设计，适配不同屏幕尺寸：
+
+- **移动端**：< 640px
+- **平板**：640px - 1024px
+- **桌面端**：> 1024px
+
+使用CSS媒体查询来调整布局和样式，确保在不同设备上都有良好的显示效果。
+
+## 开发流程
+
+### 安装依赖
+
+```bash
+yarn install
 ```
-cd existing_repo
-git remote add origin https://git.yearnstudio.cn/ling/ai-blueprint/website.git
-git branch -M master
-git push -uf origin master
+
+### 启动开发服务器
+
+```bash
+yarn serve
 ```
 
-## Integrate with your tools
+开发服务器启动后，可以在浏览器中访问 `http://localhost:8080/` 查看网站。
 
-- [ ] [Set up project integrations](https://git.yearnstudio.cn/ling/ai-blueprint/website/-/settings/integrations)
+### 构建生产版本
 
-## Collaborate with your team
+```bash
+yarn build
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+构建完成后，生产版本的文件会生成在 `dist/` 目录中。
 
-## Test and Deploy
+### 运行ESLint检查
 
-Use the built-in continuous integration in GitLab.
+```bash
+yarn lint
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## 如何添加新组件
 
-***
+1. 在 `src/components/` 目录下创建新的Vue组件文件（如 `NewComponent.vue`）
+2. 在组件文件中编写模板、脚本和样式
+3. 在 `App.vue` 中导入并使用新组件
 
-# Editing this README
+```vue
+<!-- App.vue -->
+<template>
+  <div class="app">
+    <!-- 其他组件 -->
+    <NewComponent />
+    <!-- 其他组件 -->
+  </div>
+</template>
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+<script setup>
+import NewComponent from './components/NewComponent.vue'
+// 其他导入
+</script>
+```
 
-## Suggestions for a good README
+## 如何修改样式
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### 修改主题色
 
-## Name
-Choose a self-explaining name for your project.
+在 `src/assets/styles/global.css` 文件中修改CSS变量的值：
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+```css
+:root {
+  /* 修改主题色 */
+  --primary-color: #6366f1;
+  --secondary-color: #3b82f6;
+  /* 其他变量 */
+}
+```
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### 修改组件样式
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+每个组件都有自己的scoped CSS样式，可以直接在组件文件中修改：
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+```vue
+<!-- Component.vue -->
+<style scoped>
+/* 修改组件样式 */
+.component-class {
+  color: var(--primary-color);
+  /* 其他样式 */
+}
+</style>
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## 部署流程
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+1. 构建生产版本：`yarn build`
+2. 将 `dist/` 目录中的文件部署到Web服务器
+3. 配置域名和HTTPS（如果需要）
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## 注意事项
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+1. **组件命名**：组件名称使用PascalCase（如 `Navbar.vue`）
+2. **样式隔离**：组件样式使用scoped CSS，避免样式冲突
+3. **响应式设计**：在开发新组件时，要考虑不同屏幕尺寸的适配
+4. **CSS变量**：尽量使用CSS变量，避免硬编码颜色和尺寸
+5. **性能优化**：图片资源要适当压缩，避免过大的文件尺寸
+6. **代码规范**：遵循ESLint规则，保持代码风格一致
