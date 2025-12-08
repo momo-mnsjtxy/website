@@ -1,50 +1,50 @@
 <template>
-  <section id="audience" class="audience">
+  <section id="audience" class="audience" aria-labelledby="audience-title">
     <div class="container">
-      <div class="audience-grid">
+      <div class="audience-grid" role="list">
         <!-- 左边：小白用户 -->
-        <div class="audience-card card-blue">
-          <div class="card-background"></div>
+        <article class="audience-card card-blue" role="listitem" aria-labelledby="audience-title-1">
+          <div class="card-background" aria-hidden="true"></div>
           <div class="card-content">
-            <h3 class="card-title">AI 初学者</h3>
+            <h3 class="card-title" id="audience-title-1">AI 初学者</h3>
             <ul class="card-list">
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 无需深究底层代码语法
               </li>
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 直观理解数据流向与维度变化
               </li>
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 快速上手复现经典模型
               </li>
             </ul>
           </div>
-        </div>
+        </article>
 
         <!-- 右边：研发者 -->
-        <div class="audience-card card-dark">
-          <div class="card-background"></div>
+        <article class="audience-card card-dark" role="listitem" aria-labelledby="audience-title-2">
+          <div class="card-background" aria-hidden="true"></div>
           <div class="card-content">
-            <h3 class="card-title">算法工程师</h3>
+            <h3 class="card-title" id="audience-title-2">算法工程师</h3>
             <ul class="card-list">
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 分钟级架构验证
               </li>
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 快速进行消融实验
               </li>
               <li class="list-item">
-                <Icon class="list-icon" />
+                <Icon class="list-icon" aria-hidden="true" />
                 无需手动调整维度对齐
               </li>
             </ul>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

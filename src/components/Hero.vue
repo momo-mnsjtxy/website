@@ -1,12 +1,12 @@
 <template>
-  <section class="hero">
+  <section class="hero" role="banner" aria-label="主页横幅">
     <!-- 顶部背景光晕 -->
-    <div class="blob blob-blue"></div>
-    <div class="blob blob-purple"></div>
+    <div class="blob blob-blue" aria-hidden="true"></div>
+    <div class="blob blob-purple" aria-hidden="true"></div>
     
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
+        <div class="hero-badge" role="status" aria-live="polite">
           <span class="badge-indicator"></span>
           内测阶段即将开始！
         </div>
@@ -18,29 +18,26 @@
         
         <p class="hero-description">
           用蓝图的形式设计AI架构。拖拽节点、连线，<br class="desktop-only">
-          让灵感在“炼丹蓝图”中瞬间转化为可运行的模型代码。
+          让灵感在"炼丹蓝图"中瞬间转化为可运行的模型代码。
         </p>
 
-        <!-- <div class="hero-actions">
-          <button class="btn btn-primary">
-            开始构建AI架构
-          </button>
-          <button class="btn btn-secondary">
-            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            观看演示视频
-          </button>
-        </div> -->
-
         <!-- 编辑器界面展示 -->
-        <div class="editor-container float-animation">
+        <article class="editor-container float-animation" aria-label="编辑器预览">
           <!-- 装饰性背景块 -->
-          <div class="editor-background"></div>
+          <div class="editor-background" aria-hidden="true"></div>
           
           <!-- 主截图容器 -->
           <div class="editor-screenshot">
-            <img src="../assets/images/editor.svg" alt="编辑器设计图">
+            <img
+              src="../assets/images/editor.svg"
+              alt="炼丹蓝图编辑器界面预览：展示AI架构可视化设计工具"
+              width="800"
+              height="600"
+              loading="eager"
+              fetchpriority="high"
+            >
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>

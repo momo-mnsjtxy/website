@@ -1,25 +1,27 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="主导航">
     <div class="container">
       <div class="navbar-content">
         <!-- LOGO 区域 -->
         <div class="navbar-logo">
-          <div class="logo-icon">
-            <img src="../assets/images/logo.svg" alt="炼丹蓝图LOGO">
-          </div>
-          <span class="logo-text">炼丹蓝图</span>
+          <a href="/" class="logo-link" aria-label="炼丹蓝图首页">
+            <div class="logo-icon">
+              <img src="../assets/images/logo.svg" alt="炼丹蓝图LOGO" width="40" height="40" loading="lazy">
+            </div>
+            <span class="logo-text">炼丹蓝图</span>
+          </a>
         </div>
 
         <!-- 菜单 -->
-        <div class="navbar-menu">
-          <a href="#features" class="menu-item">核心功能</a>
-          <a href="#audience" class="menu-item">目标用户</a>
-          <a href="#cta" class="menu-item">立即体验</a>
-        </div>
+        <nav class="navbar-menu" aria-label="页面导航">
+          <a href="#features" class="menu-item" aria-label="查看核心功能">核心功能</a>
+          <a href="#audience" class="menu-item" aria-label="了解目标用户">目标用户</a>
+          <a href="#cta" class="menu-item" aria-label="立即体验">立即体验</a>
+        </nav>
 
         <!-- 行动按钮 -->
         <div class="navbar-actions">
-          <a href="#" class="btn-cta">敬请期待</a>
+          <a href="#" class="btn-cta" aria-label="下载炼丹蓝图">下载·敬请期待</a>
         </div>
       </div>
     </div>

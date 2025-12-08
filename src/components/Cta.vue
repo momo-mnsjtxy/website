@@ -1,10 +1,10 @@
 <template>
-  <section id="cta" class="cta">
+  <section id="cta" class="cta" aria-labelledby="cta-title">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">准备好开始炼丹了吗</h2>
+        <h2 class="cta-title" id="cta-title">准备好开始炼丹了吗</h2>
         <p class="cta-description">下载安装，打开即用。无需配置环境，简单便捷。</p>
-        <a href="#" class="btn-cta">下载·敬请期待</a>
+        <a href="#" class="btn-cta" aria-label="下载炼丹蓝图 - 敬请期待">下载·敬请期待</a>
       </div>
     </div>
   </section>

@@ -1,50 +1,50 @@
 <template>
-  <section id="features" class="features">
+  <section id="features" class="features" aria-labelledby="features-title">
     <div class="container">
-      <div class="features-header">
-        <h2 class="features-title">化繁为简，专注创新</h2>
+      <header class="features-header">
+        <h2 class="features-title" id="features-title">化繁为简，专注创新</h2>
         <p class="features-description">无论是初学者还是资深算法工程师，炼丹蓝图都能为你提供最流畅的架构设计体验。</p>
-      </div>
+      </header>
 
-      <div class="features-grid">
+      <div class="features-grid" role="list">
         <!-- 卡片 1 -->
-        <div class="feature-card">
-          <div class="card-icon card-icon-blue">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <article class="feature-card" role="listitem" aria-labelledby="feature-title-1">
+          <div class="card-icon card-icon-blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
             </svg>
           </div>
-          <h3 class="card-title">蓝图式可视化</h3>
+          <h3 class="card-title" id="feature-title-1">蓝图式可视化</h3>
           <p class="card-description">
             不需要代码。通过直观的节点拖拽和连线，清晰呈现数据流向，像搭积木一样组装复杂的AI底层架构。
           </p>
-        </div>
+        </article>
 
         <!-- 卡片 2 -->
-        <div class="feature-card">
-          <div class="card-icon card-icon-purple">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <article class="feature-card" role="listitem" aria-labelledby="feature-title-2">
+          <div class="card-icon card-icon-purple" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
             </svg>
           </div>
-          <h3 class="card-title">丰富的 AI 组件库</h3>
+          <h3 class="card-title" id="feature-title-2">丰富的 AI 组件库</h3>
           <p class="card-description">
-            内置数百种主流层（RWKV, LSTM, Transformer Block等），即拖即用。支持自定义封装模块，复用你的独家“丹方”。
+            内置数百种主流层（RWKV, LSTM, Transformer Block等），即拖即用。支持自定义封装模块，复用你的独家"丹方"。
           </p>
-        </div>
+        </article>
 
         <!-- 卡片 3 -->
-        <div class="feature-card">
-          <div class="card-icon card-icon-teal">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <article class="feature-card" role="listitem" aria-labelledby="feature-title-3">
+          <div class="card-icon card-icon-teal" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
             </svg>
           </div>
-          <h3 class="card-title">一键生成 PyTorch</h3>
+          <h3 class="card-title" id="feature-title-3">一键生成 PyTorch</h3>
           <p class="card-description">
             所见即所得。设计完成后，自动导出标准、干净的 Python 代码。从架构验证到工程落地，无缝衔接。
           </p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
