@@ -2,6 +2,11 @@
 node_modules
 /dist
 
+# Nuxt 3 specific
+.nuxt
+.output
+.env
+.nitro
 
 # local env files
 .env.local
@@ -22,3 +27,17 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+.nyc_output
+
+# Nuxt generate
+dist
+
+# Nuxt build
+.cache
