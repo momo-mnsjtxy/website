@@ -30,14 +30,15 @@
           <div class="editor-background" aria-hidden="true"></div>
 
           <!-- 主截图容器 -->
-          <!-- 111 -->
-          <div class="editor-screenshot" width="100%" height="100%">
+          <div class="editor-screenshot">
             <NuxtImg
               src="/images/editor.svg"
               alt="炼丹蓝图编辑器界面预览：展示AI架构可视化设计工具"
-              width="100%"
-              height="100%"
+              preset="hero"
+              loading="eager"
               fetchpriority="high"
+              sizes="xs:100vw sm:100vw md:100vw lg:1024px xl:1280px"
+              :style="{ width: '100%', height: '100%' }"
             />
           </div>
         </article>

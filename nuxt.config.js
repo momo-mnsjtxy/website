@@ -68,8 +68,13 @@ export default defineNuxtConfig({
 
   // 图片优化配置
   image: {
+    // 支持的图片格式（优先使用现代格式）
     formats: ["webp", "avif", "jpeg", "png"],
+    
+    // 图片质量
     quality: 80,
+    
+    // 响应式断点
     screens: {
       xs: 320,
       sm: 640,
@@ -78,6 +83,40 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
+    
+    // 默认图片提供商配置
+    provider: "ipx",
+    
+    // IPX提供商选项
+    ipx: {
+      maxAge: 31536000, // 1年缓存
+    },
+    
+    // 预设配置
+    presets: {
+      hero: {
+        modifiers: {
+          format: "webp",
+          quality: 85,
+          fit: "cover",
+        },
+      },
+      thumbnail: {
+        modifiers: {
+          format: "webp",
+          quality: 75,
+          width: 300,
+          height: 300,
+          fit: "cover",
+        },
+      },
+    },
+    
+    // 懒加载配置
+    densities: [1, 2],
+    
+    // 图片尺寸
+    sizes: "xs:100vw sm:100vw md:100vw lg:1024px xl:1280px",
   },
 
   // 实验性功能
