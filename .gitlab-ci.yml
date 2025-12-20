@@ -52,21 +52,29 @@ deploy-job:
       function Send-FtpRequest {
           param($Uri, $Method, $RenameTo=$null, $IsUpload=$false, $FilePath=$null)
           try {
-              $r = [Net.FtpWebRequest]::Create($Uri)
+              # URL编码特殊字符以避免FTP协议解析问题
+              $encodedUri = $Uri -replace '&', '%26' -replace '=', '%3D'
+              
+              $r = [Net.FtpWebRequest]::Create($encodedUri)
               $r.Method = $Method
               $r.Credentials = $cred
               $r.UsePassive = $true
               $r.KeepAlive = $false
-              $r.UseBinary = $true 
+              $r.UseBinary = $true
               if ($RenameTo) { $r.RenameTo = $RenameTo }
               
               if ($IsUpload) {
                   $bytes = [IO.File]::ReadAllBytes($FilePath)
                   $r.ContentLength = $bytes.Length
                   $s = $r.GetRequestStream()
-                  $s.Write($bytes, 0, $bytes.Length)
-                  $s.Close()
+                  try {
+                      $s.Write($bytes, 0, $bytes.Length)
+                      $s.Flush()
+                  } finally {
+                      $s.Close()
+                  }
               }
+              
               $resp = $r.GetResponse()
               
               # 如果是 ListDirectory，读取内容用于调试
