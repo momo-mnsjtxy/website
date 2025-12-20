@@ -173,32 +173,55 @@ deploy-job:
       function Remove-FtpDirectory {
           param($Uri)
           try {
+              Write-Host "[DEBUG] 正在列出目录内容: $Uri"
               $files = Send-FtpRequest -Uri $Uri -Method ([Net.WebRequestMethods+Ftp]::ListDirectoryDetails)
               $lines = $files -split "`n" | Where-Object { $_ -match '\S' }
+              Write-Host "[DEBUG] 找到 $($lines.Count) 个项目"
+              
               foreach ($line in $lines) {
                   $parts = $line -split '\s+', 9
                   $name = $parts[-1]
                   if ($name -eq '.' -or $name -eq '..') { continue }
+                  
                   $itemUri = "$Uri/$name"
+                  Write-Host "[DEBUG] 处理项目: $name"
+                  Write-Host "[DEBUG] 原始URI: $itemUri"
+                  
                   if ($line -match '^d') {
+                      Write-Host "[DEBUG] 这是目录，递归删除..."
                       Remove-FtpDirectory -Uri $itemUri
                   } else {
-                      try { Send-FtpRequest -Uri $itemUri -Method ([Net.WebRequestMethods+Ftp]::DeleteFile) | Out-Null } catch {}
+                      try {
+                          Write-Host "[DEBUG] 删除文件: $name"
+                          Send-FtpRequest -Uri $itemUri -Method ([Net.WebRequestMethods+Ftp]::DeleteFile) | Out-Null
+                          Write-Host "[DEBUG] 文件删除成功: $name"
+                      } catch {
+                          Write-Warning "[DEBUG] 删除文件失败 $name : $_"
+                      }
                   }
               }
+              Write-Host "[DEBUG] 删除空目录: $Uri"
               Send-FtpRequest -Uri $Uri -Method ([Net.WebRequestMethods+Ftp]::RemoveDirectory) | Out-Null
-          } catch {}
+              Write-Host "[DEBUG] 目录删除成功: $Uri"
+          } catch {
+              Write-Warning "[DEBUG] Remove-FtpDirectory 错误 ($Uri): $_"
+          }
       }
       
       # 删除旧的 website 目录
       Write-Host "Removing old website directory..."
+      Write-Host "[DEBUG] 目标目录: $baseUri/$targetDirName"
       Remove-FtpDirectory -Uri "$baseUri/$targetDirName"
       
       # 重命名 temp 为 website
+      Write-Host "[DEBUG] 准备重命名: $tempDirName -> $targetDirName"
+      Write-Host "[DEBUG] 源URI: $baseUri/$tempDirName"
       try {
           Send-FtpRequest -Uri "$baseUri/$tempDirName" -Method ([Net.WebRequestMethods+Ftp]::Rename) -RenameTo $targetDirName | Out-Null
           Write-Host "DEPLOYMENT SUCCESSFUL!"
       } catch {
           Write-Error "Failed to rename temp directory: $_"
+          Write-Host "[DEBUG] 重命名失败的详细信息: $($_.Exception.Message)"
+          Write-Host "[DEBUG] 完整异常: $($_ | Format-List * | Out-String)"
           exit 1
       }
