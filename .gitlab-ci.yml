@@ -77,8 +77,9 @@ deploy-job:
               
               $resp = $r.GetResponse()
               
-              # 如果是 ListDirectory，读取内容用于调试
-              if ($Method -eq [Net.WebRequestMethods+Ftp]::ListDirectory) {
+              # 如果是 ListDirectory 或 ListDirectoryDetails，读取内容
+              if ($Method -eq [Net.WebRequestMethods+Ftp]::ListDirectory -or
+                  $Method -eq [Net.WebRequestMethods+Ftp]::ListDirectoryDetails) {
                   $reader = New-Object IO.StreamReader $resp.GetResponseStream()
                   $data = $reader.ReadToEnd()
                   $reader.Close()
