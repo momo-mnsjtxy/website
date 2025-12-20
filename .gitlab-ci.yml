@@ -160,19 +160,37 @@ deploy-job:
 
       # === 8. 上线切换 ===
       Write-Host "Step 6: Going Live..."
-      try { Send-FtpRequest -Uri "$baseUri/$backupDirName" -Method ([Net.WebRequestMethods+Ftp]::RemoveDirectory) } catch {}
-
-      try { 
-          Send-FtpRequest -Uri "$baseUri/$targetDirName" -Method ([Net.WebRequestMethods+Ftp]::Rename) -RenameTo $backupDirName 
-          Write-Host "Old site backed up."
-      } catch {
-          Write-Host "Old site not found (fresh install)."
+      
+      # 尝试递归删除旧的 website 目录
+      function Remove-FtpDirectory {
+          param($Uri)
+          try {
+              $files = Send-FtpRequest -Uri $Uri -Method ([Net.WebRequestMethods+Ftp]::ListDirectoryDetails)
+              $lines = $files -split "`n" | Where-Object { $_ -match '\S' }
+              foreach ($line in $lines) {
+                  $parts = $line -split '\s+', 9
+                  $name = $parts[-1]
+                  if ($name -eq '.' -or $name -eq '..') { continue }
+                  $itemUri = "$Uri/$name"
+                  if ($line -match '^d') {
+                      Remove-FtpDirectory -Uri $itemUri
+                  } else {
+                      try { Send-FtpRequest -Uri $itemUri -Method ([Net.WebRequestMethods+Ftp]::DeleteFile) | Out-Null } catch {}
+                  }
+              }
+              Send-FtpRequest -Uri $Uri -Method ([Net.WebRequestMethods+Ftp]::RemoveDirectory) | Out-Null
+          } catch {}
       }
-
+      
+      # 删除旧的 website 目录
+      Write-Host "Removing old website directory..."
+      Remove-FtpDirectory -Uri "$baseUri/$targetDirName"
+      
+      # 重命名 temp 为 website
       try {
           Send-FtpRequest -Uri "$baseUri/$tempDirName" -Method ([Net.WebRequestMethods+Ftp]::Rename) -RenameTo $targetDirName | Out-Null
           Write-Host "DEPLOYMENT SUCCESSFUL!"
       } catch {
-          Write-Error "Failed to swap directories: $_"
+          Write-Error "Failed to rename temp directory: $_"
           exit 1
       }
