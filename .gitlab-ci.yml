@@ -33,29 +33,46 @@ deploy-job:
     - |  
       function Add-FtpFile {  
         param($ftpFilePath, $localFile, $username, $password) {  
-          $ftprequest = [System.Net.FtpWebRequest]::Create($ftpFilePath)  
-          $ftprequest.Credentials = New-Object System.Net.NetworkCredential($username, $password)  
-          $ftprequest.Method = [System.Net.WebRequestMethods+Ftp]::UploadFile  
-          $content = [System.IO.File]::ReadAllBytes($localFile)  
-          $ftprequest.ContentLength = $content.Length  
-          $rs = $ftprequest.GetRequestStream()  
-          $rs.Write($content, 0, $content.Length)  
-          $rs.Close()  
-          $rs.Dispose()  
+          try {
+            Write-Host "Uploading: $localFile to $ftpFilePath"
+            $ftprequest = [System.Net.FtpWebRequest]::Create($ftpFilePath)  
+            $ftprequest.Credentials = New-Object System.Net.NetworkCredential($username, $password)  
+            $ftprequest.Method = [System.Net.WebRequestMethods+Ftp]::UploadFile  
+            $content = [System.IO.File]::ReadAllBytes($localFile)  
+            $ftprequest.ContentLength = $content.Length  
+            $rs = $ftprequest.GetRequestStream()  
+            $rs.Write($content, 0, $content.Length)  
+            $rs.Close()  
+            $rs.Dispose()
+            Write-Host "Successfully uploaded: $ftpFilePath"
+          }
+          catch {
+            Write-Error "Failed to upload $localFile : $_"
+            exit 1
+          }
         }  
       }  
 
       function Add-FtpDirectory {  
         param($ftpPath, $username, $password) {  
-          $ftprequest = [System.Net.FtpWebRequest]::Create($ftpPath)  
-          $ftprequest.Credentials = New-Object System.Net.NetworkCredential($username, $password)  
-          $ftprequest.Method = [System.Net.WebRequestMethods+Ftp]::MakeDirectory  
-          try { $ftprequest.GetResponse() | Out-Null } catch {}  # 已存在忽略  
+          try {
+            Write-Host "Creating directory: $ftpPath"
+            $ftprequest = [System.Net.FtpWebRequest]::Create($ftpPath)  
+            $ftprequest.Credentials = New-Object System.Net.NetworkCredential($username, $password)  
+            $ftprequest.Method = [System.Net.WebRequestMethods+Ftp]::MakeDirectory  
+            $response = $ftprequest.GetResponse()
+            $response.Close()
+            Write-Host "Successfully created directory: $ftpPath"
+          } catch {
+            # Directory already exists or other error
+            Write-Host "Directory creation status: $ftpPath - $_"
+          }
         }  
       }  
 
       function Add-FtpFolderWithFiles {  
         param($sourceFolder, $destinationFolder, $username, $password) {  
+          Write-Host "Processing folder: $sourceFolder"
           Add-FtpDirectory $destinationFolder $username $password  
           $files = Get-ChildItem $sourceFolder -File  
           foreach($file in $files) {  
@@ -67,18 +84,17 @@ deploy-job:
 
       function Add-FtpFolderWithFilesRecursive {  
         param($sourceFolder, $destinationFolder, $username, $password) {  
+          Write-Host "Starting recursive upload from: $sourceFolder"
           Add-FtpFolderWithFiles $sourceFolder $destinationFolder $username $password  
           $subDirs = Get-ChildItem $sourceFolder -Directory  
-          $fromUri = New-Object System.Uri($sourceFolder)  
           foreach($subDir in $subDirs) {  
-            $toUri = New-Object System.Uri($subDir.FullName)  
-            $relativeUrl = $fromUri.MakeRelativeUri($toUri)  
-            $relativePath = [System.Uri]::UnescapeDataString($relativeUrl.ToString())  
-            $lastFolder = $relativePath.Substring($relativePath.LastIndexOf("/") + 1)  
-            Add-FtpFolderWithFilesRecursive $subDir.FullName "$destinationFolder/$lastFolder" $username $password  
+            $destPath = "$destinationFolder/$($subDir.Name)"
+            Add-FtpFolderWithFilesRecursive $subDir.FullName $destPath $username $password  
           }  
         }  
       }  
 
-      $ftpUri = "ftp://$env:FTP_HOST"  
+      $ftpUri = "ftp://$env:FTP_HOST/aib"
+      Write-Host "Starting FTP upload to: $ftpUri"
       Add-FtpFolderWithFilesRecursive "website/" $ftpUri $env:FTP_USER $env:FTP_PASS
+      Write-Host "FTP upload completed"
