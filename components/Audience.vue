@@ -1,19 +1,29 @@
+<!--
+  目标用户板块组件
+  与原版网站 https://aib.hujiarong.site/ 样式保持一致
+  - 无标题
+  - 两个卡片并排，蓝色和紫色渐变背景
+-->
 <template>
   <section id="audience" class="audience">
     <div class="container">
-      <header class="section-header">
-        <h2 class="section-title">适合谁使用</h2>
-        <p class="section-description">
-          无论你是研究者、工程师还是学生，炼丹蓝图都能助你一臂之力
-        </p>
-      </header>
-
       <div class="audience-grid">
-        <AudienceCard
-          v-for="(group, index) in targetGroups"
+        <div 
+          v-for="(group, index) in targetGroups" 
           :key="index"
-          v-bind="group"
-        />
+          class="audience-card"
+          :class="index === 0 ? 'card-blue' : 'card-purple'"
+        >
+          <h3 class="audience-title">{{ group.title }}</h3>
+          <ul class="audience-list">
+            <li v-for="(point, pointIndex) in group.points" :key="pointIndex" class="audience-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -24,13 +34,16 @@ import { targetGroups } from '~/data/audience'
 </script>
 
 <style scoped>
+/* 板块容器 */
 .audience {
   padding: 5rem 0;
-  background-color: var(--white);
+  background-color: var(--slate-50);
 }
 
 @media (min-width: 1024px) {
-  .audience { padding: 7rem 0; }
+  .audience {
+    padding: 7rem 0;
+  }
 }
 
 .container {
@@ -39,35 +52,100 @@ import { targetGroups } from '~/data/audience'
   padding: 0 1rem;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
 }
 
-.section-title {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
-@media (min-width: 768px) {
-  .section-title { font-size: 3rem; }
-}
-
-.section-description {
-  font-size: 1.125rem;
-  color: var(--slate-500);
-  max-width: 42rem;
-  margin: 0 auto;
-}
-
+/* 卡片网格 - 两列并排 */
 .audience-grid {
   display: grid;
-  gap: 2rem;
+  gap: 0;
   grid-template-columns: 1fr;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
-  .audience-grid { grid-template-columns: repeat(3, 1fr); }
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 卡片基础样式 */
+.audience-card {
+  padding: 3rem 2.5rem;
+  color: white;
+}
+
+@media (min-width: 1024px) {
+  .audience-card {
+    padding: 4rem 3rem;
+  }
+}
+
+/* 蓝色卡片 - AI初学者 */
+.card-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+/* 紫色卡片 - 算法工程师 */
+.card-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+}
+
+/* 用户群体标题 */
+.audience-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .audience-title {
+    font-size: 2rem;
+  }
+}
+
+/* 使用场景列表 */
+.audience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* 单个使用场景项 */
+.audience-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .audience-item {
+    font-size: 1.0625rem;
+  }
+}
+
+/* 勾选图标 */
+.check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.9);
 }
 </style>

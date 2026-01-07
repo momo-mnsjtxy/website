@@ -26,10 +26,10 @@ export default defineNuxtConfig({
       },
       // 全局Meta标签
       meta: [
-        // 基础SEO
-        { name: 'description', content: '炼丹蓝图 - 专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案。提供可视化编辑、模板库、团队协作等功能。' },
-        { name: 'keywords', content: 'AI架构设计,架构设计工具,AI应用开发,技术架构方案,人工智能,机器学习,深度学习,炼丹蓝图' },
-        { name: 'author', content: '炼丹蓝图' },
+        // 基础SEO - 与网站文案保持一致
+        { name: 'description', content: '炼丹蓝图 - 用蓝图的形式设计AI架构，拖拽节点、连线，让灵感瞬间转化为可运行的模型代码。内置数百种AI组件，支持实时数据展示，降低AI架构创新门槛。' },
+        { name: 'keywords', content: '炼丹蓝图,AI架构设计,AI可视化设计,蓝图式可视化,AI组件库,神经网络可视化,深度学习架构,AI初学者,算法工程师,拖拽式AI开发' },
+        { name: 'author', content: '炼丹蓝图团队' },
         
         // 主题色
         { name: 'theme-color', content: '#6366f1' },
@@ -164,8 +164,10 @@ export default defineNuxtConfig({
       siteUrl: 'https://aib.hujiarong.site',
       // 网站名称
       siteName: '炼丹蓝图',
-      // 网站描述
-      siteDescription: '专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案',
+      // 网站描述 - 与文案保持一致
+      siteDescription: '用蓝图的形式设计AI架构，拖拽节点、连线，让灵感瞬间转化为可运行的模型代码',
+      // 品牌理念
+      siteSlogan: '致力于降低AI架构创新门槛，让每个人都能成为AI架构师',
       // 默认分享图片
       ogImage: 'https://aib.hujiarong.site/og-image.jpg',
       // 语言

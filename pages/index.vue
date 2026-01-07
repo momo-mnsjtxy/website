@@ -42,27 +42,37 @@ const runtimeConfig = useRuntimeConfig()
 const baseUrl = runtimeConfig.public.siteUrl
 
 // ==================== SEO配置 ====================
+// 根据网站实际文案优化SEO内容
 useSEO({
-  // 页面标题（会与titleTemplate组合）
-  title: '炼丹蓝图 - AI架构设计工具',
+  // 页面标题 - 突出核心价值主张
+  title: 'AI架构设计 从未如此优雅简单 | 炼丹蓝图',
   
-  // 页面描述（建议50-160字符，用于搜索结果展示）
-  description: '炼丹蓝图是专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案。提供可视化编辑、丰富模板库、团队协作等功能，让AI开发更简单高效。',
+  // 页面描述 - 精准描述产品功能和价值（控制在160字符内）
+  description: '炼丹蓝图 - 用蓝图的形式设计AI架构，拖拽节点、连线，让灵感瞬间转化为可运行的模型代码。内置数百种AI组件，支持实时数据展示，降低AI架构创新门槛。',
   
-  // 关键词（用于SEO优化）
+  // 关键词 - 覆盖核心功能和目标用户搜索词
   keywords: [
-    'AI架构设计',
-    '架构设计工具', 
-    'AI应用开发',
-    '技术架构方案',
-    '人工智能',
-    '机器学习',
-    '深度学习',
-    '神经网络',
-    'AI开发工具',
+    // 品牌词
     '炼丹蓝图',
     'AI Blueprint',
-    '可视化架构设计'
+    // 核心功能词
+    'AI架构设计',
+    'AI可视化设计',
+    '蓝图式可视化',
+    'AI组件库',
+    '神经网络可视化',
+    '深度学习架构',
+    // 用户场景词
+    'AI初学者工具',
+    '算法工程师工具',
+    '模型架构设计',
+    '拖拽式AI开发',
+    // 技术词
+    '机器学习',
+    '深度学习',
+    '神经网络设计',
+    'PyTorch可视化',
+    'TensorFlow可视化'
   ],
   
   // 分享图片（1200x630像素最佳）
@@ -88,53 +98,51 @@ useSchemaOrg([
   // 1. 组织信息 - 描述网站所属组织
   createOrganizationSchema({
     name: '炼丹蓝图',
-    description: '专业的AI架构设计工具提供商',
+    description: '致力于降低AI架构创新门槛，让每个人都能成为AI架构师',
     url: baseUrl,
     logo: `${baseUrl}/logo.svg`,
-    // 社交媒体链接（如有）
     sameAs: [
-      // 'https://github.com/ai-blueprint',
-      // 'https://twitter.com/ai_blueprint',
+      'https://github.com/ai-blueprint'
     ]
   }),
   
   // 2. 网站信息 - 描述整个网站
   createWebSiteSchema({
     name: '炼丹蓝图',
-    description: '专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案',
+    description: '用蓝图的形式设计AI架构，拖拽节点、连线，让灵感瞬间转化为可运行的模型代码',
     url: baseUrl,
     inLanguage: 'zh-CN',
-    hasSearch: false // 如果有站内搜索功能，设为true
+    hasSearch: false
   }),
   
   // 3. 软件应用信息 - 描述产品本身
   createSoftwareApplicationSchema({
     name: '炼丹蓝图',
-    description: '炼丹蓝图是专业的AI架构设计工具，提供可视化编辑、模板库、团队协作等功能，帮助开发者快速构建高质量的AI应用架构方案。',
+    description: '炼丹蓝图是一款AI架构可视化设计工具。通过直观的节点拖拽和连线，清晰呈现数据流向，像搭积木一样组装复杂的AI底层架构。内置数百种AI底层计算组件，支持实时数据展示，让AI架构设计从未如此优雅简单。',
     url: baseUrl,
     applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'Web',
-    // 功能特性列表
+    operatingSystem: 'Web, Windows, macOS',
+    // 功能特性列表 - 与网站文案一致
     featureList: [
-      '可视化AI架构设计',
-      '丰富的架构模板库',
-      '团队实时协作',
-      '多格式导出支持',
-      '智能架构建议',
-      '版本历史管理'
+      '蓝图式可视化 - 通过直观的节点拖拽和连线设计AI架构',
+      '丰富的AI组件库 - 内置数百种AI底层计算组件，即拖即用',
+      '实时数据展示 - 实时计算数据流通情况，自动发现问题',
+      '自定义封装模块 - 支持复用独家"丹方"',
+      '维度自动对齐 - 自动维度对齐与提示',
+      '快速架构验证 - 分钟级架构验证'
     ],
     // 价格信息
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'CNY',
-      availability: 'https://schema.org/InStock',
-      description: '免费使用'
+      availability: 'https://schema.org/PreOrder',
+      description: '内测阶段即将开始'
     },
     // 软件版本
-    softwareVersion: '1.0.0',
+    softwareVersion: '1.0.0-beta',
     // 发布日期
-    datePublished: '2024-01-01',
+    datePublished: '2025-01-01',
     // 截图
     screenshot: `${baseUrl}/og-image.jpg`
   }),
@@ -142,8 +150,8 @@ useSchemaOrg([
   // 4. 网页信息 - 描述当前页面
   createWebPageSchema({
     type: 'WebPage',
-    name: '炼丹蓝图 - AI架构设计工具',
-    description: '专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案',
+    name: 'AI架构设计 从未如此优雅简单 | 炼丹蓝图',
+    description: '用蓝图的形式设计AI架构，拖拽节点、连线，让灵感瞬间转化为可运行的模型代码',
     url: baseUrl,
     inLanguage: 'zh-CN',
     // 面包屑导航

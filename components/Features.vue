@@ -2,8 +2,8 @@
   <section id="features" class="features">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title">核心功能</h2>
-        <p class="section-description">三大核心功能，让AI架构设计变得简单高效</p>
+        <h2 class="section-title">化繁为简，专注创新</h2>
+        <p class="section-description">无论是初学者还是资深算法工程师，炼丹蓝图都能为你提供最流畅的架构设计体验。</p>
       </header>
 
       <div class="features-grid">

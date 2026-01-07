@@ -1,34 +1,23 @@
-/**
- * ========================================
- * 核心功能数据配置
- * ========================================
- * 
- * 这个文件定义了首页"核心功能"板块显示的三个功能卡片内容
- * 
- * 如何修改：
- * - title: 功能标题，显示在卡片顶部
- * - description: 功能描述，显示在标题下方
- * - icon: 图标名称，对应 data/icons.js 中定义的图标
- * - color: 颜色主题，对应 data/icons.js 中定义的颜色（blue/purple/pink/green）
- */
+// 核心功能数据配置
+// 与原版网站 https://aib.hujiarong.site/ 保持一致
 
 export const features = [
   {
-    title: '可视化编辑器',
-    description: '通过拖拽节点和连线的方式，直观地设计AI模型架构，无需编写复杂代码。',
-    icon: 'puzzle',   // 拼图图标，代表模块化设计
-    color: 'blue'     // 蓝色主题
+    title: '蓝图式可视化',
+    description: '不需要代码。通过直观的节点拖拽和连线，清晰呈现数据流向，像搭积木一样组装复杂的AI底层架构。',
+    icon: 'blueprint',
+    color: 'blue'
   },
   {
-    title: '实时代码生成',
-    description: '设计完成后，自动生成PyTorch或TensorFlow代码，即刻部署运行。',
-    icon: 'code',     // 代码图标
-    color: 'purple'   // 紫色主题
+    title: '丰富的 AI 组件库',
+    description: '内置数百种 AI 底层计算组件，即拖即用。支持自定义封装模块，复用你的独家"丹方"。',
+    icon: 'beaker',
+    color: 'purple'
   },
   {
-    title: '团队协作',
-    description: '支持多人在线协作编辑，实时同步，让团队高效沟通架构设计思路。',
-    icon: 'users',    // 用户组图标
-    color: 'pink'     // 粉色主题
+    title: '实时数据展示',
+    description: '实时计算多样数据在您设计的架构下的流通情况，自动发现问题，可单独查看某个节点的输出数据并可视化展示。',
+    icon: 'code',
+    color: 'teal'
   }
 ]

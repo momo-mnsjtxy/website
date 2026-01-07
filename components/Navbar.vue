@@ -14,7 +14,7 @@
         </nav>
 
         <div class="navbar-actions">
-          <a href="#" class="btn-cta">下载·敬请期待</a>
+          <a href="#" class="btn-cta">敬请期待</a>
         </div>
       </div>
     </div>

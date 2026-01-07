@@ -15,8 +15,8 @@
             <span class="brand-name">炼丹蓝图</span>
           </div>
           <p class="brand-description">
-            用蓝图的形式设计AI架构，<br>
-            让灵感瞬间转化为可运行的模型代码。
+            致力于降低 AI 架构创新门槛，<br>
+            让每个人都能成为 AI 架构师。
           </p>
         </div>
 
@@ -25,27 +25,24 @@
           <div class="link-group">
             <h3 class="link-title">产品</h3>
             <ul class="link-list" role="list">
-              <li><a href="#features">核心功能</a></li>
-              <li><a href="#audience">目标用户</a></li>
-              <li><a href="#pricing">价格方案</a></li>
+              <li><a href="#">开放社区</a></li>
+              <li><a href="#">架构擂台</a></li>
             </ul>
           </div>
 
           <div class="link-group">
             <h3 class="link-title">资源</h3>
             <ul class="link-list" role="list">
-              <li><a href="/docs">文档</a></li>
-              <li><a href="/blog">博客</a></li>
-              <li><a href="/tutorials">教程</a></li>
+              <li><a href="#">官方文档</a></li>
+              <li><a href="#">组件市场</a></li>
             </ul>
           </div>
 
           <div class="link-group">
-            <h3 class="link-title">关于</h3>
+            <h3 class="link-title">联系</h3>
             <ul class="link-list" role="list">
-              <li><a href="/about">关于我们</a></li>
-              <li><a href="/contact">联系我们</a></li>
-              <li><a href="/privacy">隐私政策</a></li>
+              <li><a href="#">QQ 群</a></li>
+              <li><a href="#">微信群</a></li>
             </ul>
           </div>
         </nav>
@@ -54,7 +51,7 @@
       <!-- 版权信息 -->
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; {{ currentYear }} 炼丹蓝图. 保留所有权利.
+          &copy; 2025 AI Blueprint. All rights reserved.
         </p>
         <div class="social-links" role="list" aria-label="社交媒体链接">
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -74,9 +71,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-
-const currentYear = computed(() => new Date().getFullYear());
+// Footer组件 - 与原版网站保持一致
 </script>
 
 <style scoped>

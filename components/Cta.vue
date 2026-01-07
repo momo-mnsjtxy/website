@@ -2,17 +2,17 @@
   <section class="cta" role="complementary" aria-labelledby="cta-title">
     <div class="container">
       <div class="cta-content">
-        <h2 id="cta-title" class="cta-title">准备好开始设计了吗？</h2>
+        <h2 id="cta-title" class="cta-title">准备好开始炼丹了吗</h2>
         <p class="cta-description">
-          加入内测，第一时间体验炼丹蓝图的强大功能
+          下载安装，打开即用。无需配置环境，简单便捷。
         </p>
         <a 
-          href="#early-access" 
+          href="#download" 
           class="cta-button"
           role="button"
-          aria-label="立即申请内测资格"
+          aria-label="下载炼丹蓝图"
         >
-          立即体验
+          下载 · 敬请期待
         </a>
       </div>
     </div>
