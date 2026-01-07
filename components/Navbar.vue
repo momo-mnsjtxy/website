@@ -2,35 +2,24 @@
   <nav class="navbar" role="navigation" aria-label="主导航">
     <div class="container">
       <div class="navbar-content">
-        <!-- LOGO 区域 -->
-        <div class="navbar-logo">
-          <a href="/" class="logo-link" aria-label="炼丹蓝图首页">
-            <div class="logo-icon">
-              <img src="/logo.svg" alt="炼丹蓝图LOGO" width="40" height="40" loading="lazy">
-            </div>
-            <span class="logo-text">炼丹蓝图</span>
-          </a>
-        </div>
+        <a href="/" class="logo-link" aria-label="炼丹蓝图首页">
+          <img src="/logo.svg" alt="炼丹蓝图LOGO" class="logo-icon" width="40" height="40">
+          <span class="logo-text">炼丹蓝图</span>
+        </a>
 
-        <!-- 菜单 -->
         <nav class="navbar-menu" aria-label="页面导航">
-          <a href="#features" class="menu-item" aria-label="查看核心功能">核心功能</a>
-          <a href="#audience" class="menu-item" aria-label="了解目标用户">目标用户</a>
-          <a href="#cta" class="menu-item" aria-label="立即体验">立即体验</a>
+          <a href="#features" class="menu-item">核心功能</a>
+          <a href="#audience" class="menu-item">目标用户</a>
+          <a href="#cta" class="menu-item">立即体验</a>
         </nav>
 
-        <!-- 行动按钮 -->
         <div class="navbar-actions">
-          <a href="#" class="btn-cta" aria-label="下载炼丹蓝图">下载·敬请期待</a>
+          <a href="#" class="btn-cta">下载·敬请期待</a>
         </div>
       </div>
     </div>
   </nav>
 </template>
-
-<script setup>
-// 组合式 API 逻辑
-</script>
 
 <style scoped>
 .navbar {
@@ -42,7 +31,6 @@
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--slate-100);
-  transition: all 0.3s ease;
 }
 
 .container {
@@ -51,53 +39,29 @@
   padding: 0 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
-
 .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 5rem;
-  padding: 1rem;
 }
 
-.navbar-logo {
-  height: 100%;
+.logo-link {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.logo-icon,.logo-icon img {
-  height: 100%;
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-weight: bold;
-}
-
-.logo-svg {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--slate-800);
-  letter-spacing: -0.025em;
 }
 
 .navbar-menu {
@@ -105,11 +69,7 @@
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .navbar-menu {
-    display: flex;
-  }
-}
+@media (min-width: 768px) { .navbar-menu { display: flex; } }
 
 .menu-item {
   font-size: 0.875rem;
@@ -118,9 +78,7 @@
   transition: color 0.3s ease;
 }
 
-.menu-item:hover {
-  color: var(--primary-color);
-}
+.menu-item:hover { color: var(--primary-color); }
 
 .navbar-actions {
   display: flex;
@@ -135,11 +93,11 @@
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .btn-cta:hover {
   background-color: var(--slate-800);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 </style>

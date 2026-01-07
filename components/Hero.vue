@@ -1,6 +1,5 @@
 <template>
   <section class="hero" role="banner" aria-label="主页横幅">
-    <!-- 顶部背景光晕 -->
     <div class="blob blob-blue" aria-hidden="true"></div>
     <div class="blob blob-purple" aria-hidden="true"></div>
 
@@ -21,24 +20,13 @@
           让灵感在"炼丹蓝图"中瞬间转化为可运行的模型代码。
         </p>
 
-        <!-- 编辑器界面展示 -->
-        <article
-          class="editor-container float-animation"
-          aria-label="编辑器预览"
-        >
-          <!-- 装饰性背景块 -->
+        <article class="editor-container float-animation" aria-label="编辑器预览">
           <div class="editor-background" aria-hidden="true"></div>
-
-          <!-- 主截图容器 -->
           <div class="editor-screenshot">
-            <NuxtImg
+            <img
               src="/images/editor.svg"
-              alt="炼丹蓝图编辑器界面预览：展示AI架构可视化设计工具"
-              preset="hero"
+              alt="炼丹蓝图编辑器界面预览"
               loading="eager"
-              fetchpriority="high"
-              sizes="xs:100vw sm:100vw md:100vw lg:1024px xl:1280px"
-              :style="{ width: '100%', height: '100%' }"
             />
           </div>
         </article>
@@ -46,10 +34,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-// 组合式 API 逻辑
-</script>
 
 <style scoped>
 .hero {
@@ -59,11 +43,7 @@
   overflow: hidden;
 }
 
-@media (min-width: 1024px) {
-  .hero {
-    padding: 10rem 0 7rem;
-  }
-}
+@media (min-width: 1024px) { .hero { padding: 10rem 0 7rem; } }
 
 .blob {
   position: absolute;
@@ -95,18 +75,6 @@
   padding: 0 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
-
 .hero-content {
   max-width: 56rem;
   margin: 0 auto;
@@ -132,18 +100,7 @@
   height: 0.5rem;
 }
 
-.badge-indicator::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--blue-500);
-  border-radius: 50%;
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
+.badge-indicator::before,
 .badge-indicator::after {
   content: "";
   position: absolute;
@@ -155,16 +112,13 @@
   border-radius: 50%;
 }
 
+.badge-indicator::before {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 @keyframes ping {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.5;
-  }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
 }
 
 .hero-title {
@@ -175,24 +129,11 @@
   line-height: 1.2;
 }
 
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-title {
-    font-size: 5rem;
-  }
-}
+@media (min-width: 768px) { .hero-title { font-size: 4rem; } }
+@media (min-width: 1024px) { .hero-title { font-size: 5rem; } }
 
 .gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--secondary-color) 0%,
-    var(--accent-purple) 100%
-  );
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -208,21 +149,10 @@
   line-height: 1.6;
 }
 
-@media (min-width: 768px) {
-  .hero-description {
-    font-size: 1.25rem;
-  }
-}
+@media (min-width: 768px) { .hero-description { font-size: 1.25rem; } }
 
-.desktop-only {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .desktop-only {
-    display: block;
-  }
-}
+.desktop-only { display: none; }
+@media (min-width: 768px) { .desktop-only { display: block; } }
 
 .editor-container {
   position: relative;
@@ -232,25 +162,15 @@
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .editor-background {
   position: absolute;
   inset: -0.25rem;
-  background: linear-gradient(
-    135deg,
-    var(--blue-400) 0%,
-    var(--purple-400) 100%
-  );
+  background: linear-gradient(135deg, var(--blue-400) 0%, var(--purple-400) 100%);
   border-radius: 1.5rem;
   opacity: 0.2;
   filter: blur(1rem);
@@ -263,7 +183,12 @@
   border-radius: 1rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  line-height: 0;
+}
+
+.editor-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 </style>
