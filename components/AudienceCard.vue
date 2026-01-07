@@ -74,9 +74,14 @@ defineProps({
 /* 单个使用场景项 */
 .audience-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;  /* 图标与文字垂直居中对齐 */
   gap: 0.75rem;
   color: var(--slate-600);
   line-height: 1.6;
+}
+
+/* 确保图标容器不会被压缩 */
+.audience-item :deep(.base-icon) {
+  flex-shrink: 0;
 }
 </style>

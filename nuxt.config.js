@@ -1,61 +1,221 @@
+/**
+ * Nuxt 配置文件
+ * 
+ * 包含：
+ * - 全局SEO配置（Open Graph、Twitter Card等）
+ * - 国际化配置
+ * - 图片优化配置
+ * - 性能优化配置
+ */
 export default defineNuxtConfig({
+  // ==================== 服务端渲染 ====================
   ssr: true,
 
+  // ==================== 应用配置 ====================
   app: {
     head: {
-      charset: "utf-8",
-      viewport: "width=device-width, initial-scale=1",
-      titleTemplate: "%s - 炼丹蓝图",
-      htmlAttrs: { lang: "zh-CN" },
+      // 字符编码
+      charset: 'utf-8',
+      // 视口设置
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+      // 标题模板
+      titleTemplate: '%s - 炼丹蓝图',
+      // HTML属性
+      htmlAttrs: { 
+        lang: 'zh-CN' 
+      },
+      // 全局Meta标签
       meta: [
-        { name: "description", content: "专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案" },
-        { name: "theme-color", content: "#6366f1" },
+        // 基础SEO
+        { name: 'description', content: '炼丹蓝图 - 专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案。提供可视化编辑、模板库、团队协作等功能。' },
+        { name: 'keywords', content: 'AI架构设计,架构设计工具,AI应用开发,技术架构方案,人工智能,机器学习,深度学习,炼丹蓝图' },
+        { name: 'author', content: '炼丹蓝图' },
+        
+        // 主题色
+        { name: 'theme-color', content: '#6366f1' },
+        { name: 'msapplication-TileColor', content: '#6366f1' },
+        
+        // 搜索引擎指令
+        { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+        { name: 'googlebot', content: 'index, follow' },
+        
+        // Open Graph 基础标签（全局默认值）
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: '炼丹蓝图' },
+        { property: 'og:locale', content: 'zh_CN' },
+        { property: 'og:locale:alternate', content: 'en_US' },
+        
+        // Twitter Card 基础标签
+        { name: 'twitter:card', content: 'summary_large_image' },
+        
+        // 移动端优化
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+        { name: 'apple-mobile-web-app-title', content: '炼丹蓝图' },
+        
+        // 安全相关
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+        { name: 'referrer', content: 'strict-origin-when-cross-origin' },
       ],
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/logo.svg" }],
+      // 全局Link标签
+      link: [
+        // 网站图标
+        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        
+        // 预连接（提升性能）
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        
+        // DNS预解析
+        { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
+        { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
+      ],
     },
   },
 
-  css: ["~/assets/styles/global.css"],
+  // ==================== 全局CSS ====================
+  css: ['~/assets/styles/global.css'],
 
+  // ==================== 路由规则 ====================
   routeRules: {
-    "/": { prerender: true },
-    "/sitemap.xml": { prerender: true },
-    "/robots.txt": { prerender: true },
+    // 首页预渲染
+    '/': { prerender: true },
+    // SEO文件预渲染
+    '/sitemap.xml': { prerender: true },
+    '/robots.txt': { prerender: true },
+    // 英文版本预渲染
+    '/en-US': { prerender: true },
+    '/en-US/**': { prerender: true },
   },
 
+  // ==================== 国际化配置 ====================
   i18n: {
     locales: [
-      { code: "zh-CN", iso: "zh-CN", name: "简体中文", file: "zh-CN.js" },
-      { code: "en-US", iso: "en-US", name: "English", file: "en-US.js" },
+      { code: 'zh-CN', iso: 'zh-CN', name: '简体中文', file: 'zh-CN.js' },
+      { code: 'en-US', iso: 'en-US', name: 'English', file: 'en-US.js' },
     ],
     lazy: true,
-    langDir: "locales",
-    defaultLocale: "zh-CN",
-    strategy: "prefix_except_default",
+    langDir: 'locales',
+    defaultLocale: 'zh-CN',
+    strategy: 'prefix_except_default',
+    // SEO相关配置
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+    },
   },
 
+  // ==================== 图片优化配置 ====================
   image: {
-    formats: ["webp", "jpeg", "png"],
+    formats: ['webp', 'jpeg', 'png'],
     quality: 80,
-    provider: "ipx",
+    provider: 'ipx',
+    // 图片尺寸预设
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
   },
 
+  // ==================== Nitro服务器配置 ====================
   nitro: {
+    // 压缩静态资源
     compressPublicAssets: true,
+    // 预渲染配置
     prerender: {
       crawlLinks: true,
-      routes: ["/", "/sitemap.xml", "/robots.txt"],
+      routes: [
+        '/',
+        '/sitemap.xml',
+        '/robots.txt',
+        '/en-US',
+      ],
+    },
+    // 路由规则
+    routeRules: {
+      // 静态资源缓存
+      '/_nuxt/**': {
+        headers: {
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
+      },
+      // 图片缓存
+      '/images/**': {
+        headers: {
+          'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+        },
+      },
     },
   },
 
+  // ==================== 运行时配置 ====================
   runtimeConfig: {
     public: {
-      siteUrl: "https://aib.hujiarong.site",
-      siteName: "炼丹蓝图",
+      // 网站URL（用于生成绝对路径）
+      siteUrl: 'https://aib.hujiarong.site',
+      // 网站名称
+      siteName: '炼丹蓝图',
+      // 网站描述
+      siteDescription: '专业的AI架构设计工具，帮助开发者快速构建高质量的AI应用架构方案',
+      // 默认分享图片
+      ogImage: 'https://aib.hujiarong.site/og-image.jpg',
+      // 语言
+      language: 'zh-CN',
     },
   },
 
-  modules: ["@nuxt/image", "@nuxtjs/i18n", "@vueuse/nuxt"],
+  // ==================== 模块 ====================
+  modules: [
+    '@nuxt/image',
+    '@nuxtjs/i18n',
+    '@vueuse/nuxt',
+  ],
 
-  compatibilityDate: "2024-12-18",
+  // ==================== 实验性功能 ====================
+  experimental: {
+    // 启用payload提取（提升性能）
+    payloadExtraction: true,
+    // 启用组件岛屿
+    componentIslands: true,
+  },
+
+  // ==================== 构建配置 ====================
+  build: {
+    // 转译依赖
+    transpile: [],
+  },
+
+  // ==================== Vite配置 ====================
+  vite: {
+    // CSS配置
+    css: {
+      preprocessorOptions: {
+        // 如果使用SCSS，可以在这里配置
+      },
+    },
+    // 构建优化
+    build: {
+      // 代码分割
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // 将Vue相关库打包到一起
+            vue: ['vue', 'vue-router'],
+          },
+        },
+      },
+    },
+  },
+
+  // ==================== 兼容性日期 ====================
+  compatibilityDate: '2024-12-18',
 })
