@@ -1,6 +1,6 @@
 /**
  * English Language Pack
- * 
+ *
  * Contains all English text for the website
  * Structure matches zh-CN.js for consistency
  */
@@ -9,7 +9,7 @@ export default {
   site: {
     name: 'AI Blueprint',
     slogan: 'AI Architecture Design',
-    description: 'Design AI architectures in blueprint form. Drag nodes, connect lines, and transform your ideas into runnable model code instantly.'
+    description: 'Design AI architectures visually. Drag nodes, connect lines, and turn your ideas into runnable model code.'
   },
 
   // ==================== Navigation ====================
@@ -22,33 +22,33 @@ export default {
 
   // ==================== Hero Section ====================
   hero: {
-    badge: 'Beta testing coming soon!',
+    badge: 'Beta coming soon!',
     title: 'AI Architecture Design',
-    subtitle: 'Never Been So Elegant',
-    description: 'Design AI architectures in blueprint form. Drag nodes, connect lines, and transform your ideas into runnable model code instantly.',
+    subtitle: 'Elegantly Simple',
+    description: 'Design AI architectures visually. Drag nodes, connect lines, and turn your ideas into runnable model code.',
     cta: 'Coming Soon'
   },
 
   // ==================== Features Section ====================
   features: {
-    title: 'Simplify Complexity, Focus on Innovation',
-    subtitle: 'Whether you\'re a beginner or a senior algorithm engineer, AI Blueprint provides the smoothest architecture design experience.',
+    title: 'Simplify. Innovate.',
+    subtitle: 'For beginners and senior engineers alike — the smoothest architecture design experience.',
     items: [
       {
-        title: 'Blueprint Visualization',
-        description: 'No code needed. Through intuitive node dragging and connecting, clearly present data flow, assembling complex AI architectures like building blocks.',
+        title: 'Visual Blueprint',
+        description: 'No code needed. Drag nodes, connect lines, and build complex AI architectures like building blocks.',
         icon: 'blueprint',
         color: 'blue'
       },
       {
-        title: 'Rich AI Component Library',
-        description: 'Built-in hundreds of AI computing components, ready to use. Support custom module encapsulation to reuse your exclusive "recipes".',
+        title: 'Rich AI Components',
+        description: 'Hundreds of built-in AI components, ready to use. Create custom modules and reuse your own recipes.',
         icon: 'beaker',
         color: 'purple'
       },
       {
-        title: 'Real-time Data Display',
-        description: 'Real-time calculation of data flow in your designed architecture, automatic problem detection, view individual node outputs with visualization.',
+        title: 'Real-time Data View',
+        description: 'Watch data flow through your architecture in real-time. Auto-detect issues and visualize any node output.',
         icon: 'code',
         color: 'teal'
       }
@@ -57,24 +57,24 @@ export default {
 
   // ==================== Audience Section ====================
   audience: {
-    title: 'Target Users',
+    title: 'Who It\'s For',
     subtitle: '',
     items: [
       {
         title: 'AI Beginners',
         points: [
-          'No need to dive deep into code syntax',
-          'Intuitively understand data flow and dimension changes',
-          'Quickly get started reproducing classic models'
+          'No deep code syntax needed',
+          'Visualize data flow and dimensions',
+          'Quickly reproduce classic models'
         ],
         color: 'blue'
       },
       {
         title: 'Algorithm Engineers',
         points: [
-          'Minute-level architecture validation',
-          'Rapid ablation experiments',
-          'Automatic dimension alignment and hints'
+          'Validate architectures in minutes',
+          'Run ablation experiments fast',
+          'Auto dimension alignment'
         ],
         color: 'purple'
       }
@@ -83,14 +83,14 @@ export default {
 
   // ==================== CTA Section ====================
   cta: {
-    title: 'Ready to Start Building?',
-    subtitle: 'Download and install, ready to use. No environment setup needed, simple and convenient.',
+    title: 'Ready to Start?',
+    subtitle: 'Download, open, and create. No setup needed.',
     button: 'Download · Coming Soon'
   },
 
   // ==================== Footer ====================
   footer: {
-    description: 'Lowering the barrier to AI innovation, empowering everyone to be an AI architect.',
+    description: 'Lowering the barrier to AI innovation — empowering everyone to be an AI architect.',
     links: {
       product: {
         title: 'Product',
@@ -131,7 +131,7 @@ export default {
   // ==================== SEO Related ====================
   seo: {
     defaultTitle: 'AI Blueprint - AI Architecture Design Tool',
-    defaultDescription: 'Design AI architectures in blueprint form. Drag nodes, connect lines, and transform your ideas into runnable model code instantly.',
+    defaultDescription: 'Design AI architectures visually. Drag nodes, connect lines, and turn your ideas into runnable model code.',
     keywords: 'AI architecture design,AI Blueprint,deep learning,neural network,visual design,AI component library,model design'
   },
 
