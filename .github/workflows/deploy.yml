@@ -16,14 +16,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build project
-        run: yarn build
+        run: yarn generate
       - name: Deploy to server via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
-          source: 'dist/*'
+          source: '.output/public/*'
           target: '/www/wwwroot/aib'
-          strip_components: 1
+          strip_components: 2
           overwrite: true
