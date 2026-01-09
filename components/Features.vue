@@ -72,9 +72,17 @@ const localizedFeatures = computed(() => {
 }
 
 .section-title {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .section-title { font-size: 1.75rem; }
+}
+
+@media (min-width: 640px) {
+  .section-title { font-size: 2.25rem; }
 }
 
 @media (min-width: 768px) {
@@ -82,10 +90,23 @@ const localizedFeatures = computed(() => {
 }
 
 .section-description {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   color: var(--slate-500);
   max-width: 42rem;
   margin: 0 auto;
+  line-height: 1.7;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .section-description {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .section-description { font-size: 1.125rem; }
 }
 
 .features-grid {

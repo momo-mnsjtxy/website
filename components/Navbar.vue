@@ -68,6 +68,20 @@ const localePath = useLocalePath()
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--slate-800);
+  white-space: nowrap;
+}
+
+/* 移动端logo文字缩小 */
+@media (max-width: 640px) {
+  .logo-text {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1rem;
+  }
 }
 
 .navbar-menu {
@@ -101,6 +115,7 @@ const localePath = useLocalePath()
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 
 .btn-cta:hover {
@@ -108,11 +123,18 @@ const localePath = useLocalePath()
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* 移动端隐藏下载按钮文字 */
+/* 移动端优化下载按钮 */
 @media (max-width: 640px) {
   .btn-cta {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn-cta {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.6875rem;
   }
 }
 </style>

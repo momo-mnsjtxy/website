@@ -69,9 +69,21 @@ const { t } = useI18n()
 }
 
 .cta-title {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .cta-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .cta-title {
+    font-size: 2.25rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -81,12 +93,28 @@ const { t } = useI18n()
 }
 
 .cta-description {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
   opacity: 0.9;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.7;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .cta-description {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .cta-description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -97,15 +125,23 @@ const { t } = useI18n()
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--white);
   color: var(--secondary-color);
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: 0.75rem;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
 }
 
 .cta-button:hover {

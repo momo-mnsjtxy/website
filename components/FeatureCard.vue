@@ -81,14 +81,28 @@ const iconColor = computed(() => colorConfig.value.text)
 
 /* 功能标题 */
 .feature-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .feature-title {
+    font-size: 1.5rem;
+  }
 }
 
 /* 功能描述 */
 .feature-description {
   color: var(--slate-500);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 </style>

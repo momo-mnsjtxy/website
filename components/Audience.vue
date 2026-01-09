@@ -127,10 +127,23 @@ const localizedGroups = computed(() => {
 
 /* 用户群体标题 */
 .audience-title {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: white;
+}
+
+@media (min-width: 480px) {
+  .audience-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .audience-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -146,17 +159,38 @@ const localizedGroups = computed(() => {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .audience-list {
+    gap: 1.25rem;
+  }
 }
 
 /* 单个使用场景项 */
 .audience-item {
   display: flex;
-  align-items: center;
-  gap: 0.875rem;
+  align-items: flex-start;
+  gap: 0.75rem;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 480px) {
+  .audience-item {
+    font-size: 0.875rem;
+    align-items: center;
+    gap: 0.875rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .audience-item {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 @media (min-width: 768px) {

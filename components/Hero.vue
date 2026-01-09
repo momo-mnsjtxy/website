@@ -125,13 +125,15 @@ const { t } = useI18n()
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
+@media (min-width: 480px) { .hero-title { font-size: 2.5rem; } }
+@media (min-width: 640px) { .hero-title { font-size: 3rem; } }
 @media (min-width: 768px) { .hero-title { font-size: 4rem; } }
 @media (min-width: 1024px) { .hero-title { font-size: 5rem; } }
 
@@ -143,15 +145,28 @@ const { t } = useI18n()
 }
 
 .hero-description {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   color: var(--slate-500);
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.7;
+  padding: 0 0.5rem;
 }
 
+@media (min-width: 480px) {
+  .hero-description {
+    font-size: 1rem;
+    padding: 0;
+  }
+}
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem;
+    margin-bottom: 4rem;
+  }
+}
 @media (min-width: 768px) { .hero-description { font-size: 1.25rem; } }
 
 .desktop-only { display: none; }
