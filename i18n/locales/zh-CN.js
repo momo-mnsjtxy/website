@@ -109,12 +109,12 @@ export default {
       contact: {
         title: '联系',
         items: [
-          { name: 'QQ 群', url: '#' },
-          { name: '微信群', url: '#' }
+          { name: 'QQ 群', url: 'https://qun.qq.com/universal-share/share?ac=1&authKey=eLkj1QLdUkC2LQAiLKW2tmH87UgnLxrp22jPc0q4vlCPVy84SOSYOR3coq8pNZuB&busi_data=eyJncm91cENvZGUiOiIxMDgxMTk3MDUyIiwidG9rZW4iOiJVbzB3dmJQNVl0cnozaFpKQmYycStPa2k3TEd2ZytIVTRENklkSHptcHhPU1JHK203QzgyNHhOcE9KSldhd1Q2IiwidWluIjoiOTE3ODExNzI2In0%3D&data=zyq7dImFnIpdAx5x2Zs8oKjKC8DAvkepKvOczDGKaOPHRi7YJGAcrwXq-3upjpICMZ1hK13zJ1UT9bzdTO8WpA&svctype=4&tempid=h5_group_info' },
+          /* { name: '微信群', url: '#' } */
         ]
       }
     },
-    copyright: '© 2025 AI Blueprint. All rights reserved.'
+    copyright: '© 2026 炼丹蓝图 保留所有权利。'
   },
 
   // ==================== 通用按钮和操作 ====================

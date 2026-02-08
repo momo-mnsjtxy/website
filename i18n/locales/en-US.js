@@ -114,7 +114,7 @@ export default {
         ]
       }
     },
-    copyright: '© 2025 AI Blueprint. All rights reserved.'
+    copyright: '© 2026 AI Blueprint. All rights reserved.'
   },
 
   // ==================== Common Buttons and Actions ====================
