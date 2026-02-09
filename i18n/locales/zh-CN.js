@@ -22,7 +22,7 @@ export default {
 
   // ==================== 首页 Hero 部分 ====================
   hero: {
-    badge: '内测阶段即将开始！',
+    badge: '项目已开源！',
     title: 'AI 架构设计',
     subtitle: '从未如此优雅简单',
     description: '用蓝图的形式设计AI架构。拖拽节点、连线，让灵感在"炼丹蓝图"中瞬间转化为可运行的模型代码。',
@@ -109,7 +109,7 @@ export default {
         ]
       }
     },
-    copyright: '© 2025 AI Blueprint. All rights reserved.'
+    copyright: '© 2026 炼丹蓝图 保留所有权利。'
   },
 
   // ==================== 通用按钮和操作 ====================

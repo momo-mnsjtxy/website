@@ -17,13 +17,16 @@
   <div class="home-page">
     <!-- 首屏横幅 -->
     <Hero />
-    
+
     <!-- 核心功能展示 -->
     <Features />
-    
+
     <!-- 目标用户群体 -->
     <Audience />
-    
+
+    <!-- VTuber Logo 展示 -->
+    <VTuberShowcase />
+
     <!-- 行动号召 -->
     <Cta />
   </div>
@@ -32,9 +35,9 @@
 <script setup>
 import { computed } from 'vue'
 // 导入结构化数据创建函数
-import { 
-  createOrganizationSchema, 
-  createWebSiteSchema, 
+import {
+  createOrganizationSchema,
+  createWebSiteSchema,
   createSoftwareApplicationSchema,
   createWebPageSchema
 } from '~/composables/useSchemaOrg'
@@ -88,7 +91,7 @@ useSchemaOrg([
       'https://github.com/ai-blueprint'
     ]
   }),
-  
+
   // 2. 网站信息 - 描述整个网站
   createWebSiteSchema({
     name: siteName.value,
@@ -97,7 +100,7 @@ useSchemaOrg([
     inLanguage: locale.value,
     hasSearch: false
   }),
-  
+
   // 3. 软件应用信息 - 描述产品本身
   createSoftwareApplicationSchema({
     name: siteName.value,
@@ -122,7 +125,7 @@ useSchemaOrg([
     // 截图
     screenshot: `${baseUrl}/og-image.jpg`
   }),
-  
+
   // 4. 网页信息 - 描述当前页面
   createWebPageSchema({
     type: 'WebPage',

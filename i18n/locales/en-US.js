@@ -22,7 +22,7 @@ export default {
 
   // ==================== Hero Section ====================
   hero: {
-    badge: 'Beta coming soon!',
+    badge: 'Project is Open Source!',
     title: 'AI Architecture Design',
     subtitle: 'Elegantly Simple',
     description: 'Design AI architectures visually. Drag nodes, connect lines, and turn your ideas into runnable model code.',
@@ -109,7 +109,7 @@ export default {
         ]
       }
     },
-    copyright: '© 2025 AI Blueprint. All rights reserved.'
+    copyright: '© 2026 AI Blueprint. All rights reserved.'
   },
 
   // ==================== Common Buttons and Actions ====================
